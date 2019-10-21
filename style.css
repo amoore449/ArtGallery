@@ -1,0 +1,66 @@
+
+body {
+	background: #466368;
+ 	 background: radial-gradient(#fc466b, #8c54c0);
+}
+h1 {
+  text-align: center;
+  background-color: #282828;
+  color: #FFFFFF;
+  padding: 50px;
+  box-sizing: border-box;
+  font-family: Helvetica, "Times New Roman";
+  opacity: : .5;
+  border-radius: 50%;
+}
+
+.row {
+  display: flex; 
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.column0, .column1, .column2,.column3,.column4, .column5, .column6, .column7, .column8, .column9 {
+  -ms-flex: 20%; 
+  flex: 20%;
+  padding: .2% ;
+  box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 300px;
+  width: 100%;
+  margin-top: 8px;
+  vertical-align: middle;
+   position: relative;
+
+}
+#overlay5, #overlay6, #overlay7, #overlay8, #overlay9{
+  background-color: black;
+  box-sizing: border-box;
+  max-width: 300px;
+  width: 98%;
+  padding: 15px;
+  color: #ffff; 
+  display: inline;
+  z-index: 120;
+  -ms-flex: 20%; 
+  flex: 20%;
+  position: absolute;
+  opacity: 0.8
+}
+#l5, #l6, #l7, #l8, #l9 {
+	 justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  	width: 100%;
+   
+
+}
+#s0,#s1,#s2, #s3, #s4 {
+	 justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  	width: 20%;
+   
+
+}

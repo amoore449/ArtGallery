@@ -1,0 +1,192 @@
+<DOCTYPE! html>
+<html>
+	<head>
+		<title>Work of Art</title>
+		<link rel = "stylesheet" type = "text/css" href = "style.css" />
+		<!--JQUERY STYLESHEET!-->
+		<script src="jquery.js"></script>
+		
+		<script type="text/javascript">
+
+		/*DEFINE ART ELEMENT*/
+			var Art = function(price, name, small, large) {
+				this.price = price;
+				this.name = name;
+				this.small = make_art(small);
+				this.large = make_art(large);
+			}
+
+		/*DEFINE EACH ELEMENT IN THE ARRAY*/
+		var piece1 = new Art(12.34, "Garfield", "https://yt3.ggpht.com/a/AGF-l7_5_gsypJpmcfZFJlo7QlWEGHixtwrEuzgEaw=s900-c-k-c0xffffffff-no-rj-mo","https://upload.wikimedia.org/wikipedia/commons/1/1f/James_Abram_Garfield%2C_photo_portrait_seated.jpg");
+		var piece2 = new Art(999.01, "Hobbes", "https://i.pinimg.com/originals/91/1e/29/911e290e72d441b33e6fe898db2f4327.jpg","https://upload.wikimedia.org/wikipedia/commons/d/d8/Thomas_Hobbes_%28portrait%29.jpg");
+		var piece3 = new Art(99.01, "Calvin", "https://vignette.wikia.nocookie.net/calvinandhobbesfanon/images/a/a3/Calvin2-1.jpg/revision/latest?cb=20130810205141","https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/John_Calvin_Museum_Catharijneconvent_RMCC_s84_cropped.png/1200px-John_Calvin_Museum_Catharijneconvent_RMCC_s84_cropped.png");
+		var piece4 = new Art(27.21, "Homer", "https://www.lifewire.com/thmb/vDB3ply4rHJG_BDWeD0AbuRu-EU=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simpsons_09_Homer_V2F_hires1-56e1eccc5f9b5854a9f89a63.jpg","https://upload.wikimedia.org/wikipedia/commons/1/1c/Homer_British_Museum.jpg");
+		var piece5 = new Art(27.21, "Charlie", "https://jonathondsvendsen.files.wordpress.com/2016/11/charlie-brown.png","https://thumbs-prod.si-cdn.com/KPrjO7CpTJKCs0qOId2cPBiF-dg=/fit-in/1600x0/filters:focal(1872x905:1873x906)/https://public-media.si-cdn.com/filer/ae/da/aeda37d7-0076-4908-91dc-e6b1ea5d825a/charlie_chaplin_42-18095616.jpg");
+		/*CREATE ARRAY*/
+		art_arr = new Array (piece1, piece2, piece3, piece4, piece5);
+	
+		/*LOOP TO DISPLAY IMAGE ELEMENTS*/
+		$(document).ready(function(){
+		for (i = 0; i<5;i++) {
+		
+		$(".column" + i).append(art_arr[i].small);
+		$(art_arr[i].small).attr('id', 's' + i);
+
+	} for (i = 5; i< 10;i++) {
+		$(".column" + i).append(art_arr[i-5].large);
+		$(art_arr[i-5].large).attr('id', 'l' + i);
+	}
+
+
+});
+		/*HOVER COMMMANDS*/
+		/*GARFIELD TO GARFIELD (0 to 5)*/
+		$(document).ready(function(){
+			$("#s0").mouseenter(function(){
+				 $("#l5").fadeOut(function(){
+	   			 $(this).attr("src", "https://yt3.ggpht.com/a/AGF-l7_5_gsypJpmcfZFJlo7QlWEGHixtwrEuzgEaw=s900-c-k-c0xffffffff-no-rj-mo").fadeIn(3400);
+	   			
+			});
+		});
+		/*HOBBES TO HOBBES (1 to 6)*/
+		$("#s1").mouseenter(function(){
+			 $("#l6").fadeOut(function(){
+   			 $(this).attr("src", "https://i.pinimg.com/originals/91/1e/29/911e290e72d441b33e6fe898db2f4327.jpg").fadeIn(3400);
+   			
+			});
+		});
+
+		/*CALVIN TO CALVIN (2 to 7)*/
+		$("#s2").mouseenter(function(){
+			 $("#l7").fadeOut(function(){
+   			 $(this).attr("src", "https://vignette.wikia.nocookie.net/calvinandhobbesfanon/images/a/a3/Calvin2-1.jpg/revision/latest?cb=20130810205141").fadeIn(3400);
+   			
+			});
+		});
+		/*HOMER TO HOMER (3 to 8)*/
+		$("#s3").mouseenter(function(){
+			 $("#l8").fadeOut(function(){
+   			 $(this).attr("src", "https://www.lifewire.com/thmb/vDB3ply4rHJG_BDWeD0AbuRu-EU=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simpsons_09_Homer_V2F_hires1-56e1eccc5f9b5854a9f89a63.jpg").fadeIn(3400);
+   			
+			});
+		});
+		/*CHARLIE TO CHARLIE (4 to 9)*/
+		$("#s4").mouseenter(function(){
+			 $("#l9").fadeOut(function(){
+   			 $(this).attr("src", "https://jonathondsvendsen.files.wordpress.com/2016/11/charlie-brown.png").fadeIn(3400);
+   			
+			});
+		});
+		});
+
+
+
+		/*HIDE CLICK COMMANDS AT START*/
+		$(document).ready(function() {
+		for (i =5; i<10;i++) {
+  		  			$("#overlay" + i).hide();
+		}
+		});
+
+		/*CLICK COMMANDS*/
+				$(document).ready(function() {
+					$(".column"+5).click(function(){
+   						 $("#overlay"+5).show();
+						$("#overlay"+5).html("Name: " + piece1.name + "<br> Cost: $" + piece1.price );
+						setTimeout(function(){
+ 							 $("#overlay"+5).hide();
+ 							}, 2000);
+						});
+
+					$(".column"+6).click(function(){
+   						 $("#overlay"+6).show();
+						$("#overlay"+6).html("Name: " + piece2.name + "<br> Cost: $" +piece2.price);
+						setTimeout(function(){
+ 							 $("#overlay"+6).hide();
+ 							}, 2000);
+						});
+
+					$(".column"+7).click(function(){
+   						 $("#overlay"+7).show();
+						$("#overlay"+7).html("Name: " + piece3.name + "<br> Cost: $" +piece3.price);
+						setTimeout(function(){
+ 							 $("#overlay"+7).hide();
+ 							}, 2000);
+						});
+
+					$(".column"+8).click(function(){
+   						 $("#overlay"+8).show();
+						$("#overlay"+8).html("Name: " + piece4.name + "<br> Cost: $" +piece4.price);
+						setTimeout(function(){
+ 							 $("#overlay"+8).hide();
+ 							}, 2000);
+						});
+
+					$(".column"+9).click(function(){
+   						 $("#overlay"+9).show();
+						$("#overlay"+9).html("Name: " + piece5.name + "<br> Cost: $" +piece5.price);
+						setTimeout(function(){
+ 							 $("#overlay"+9).hide();
+ 							}, 2000);
+						});
+		});
+		/*FUNCTION ART DESCRIPTIONS*/
+
+		 
+		for (i = 5; i< 10;i++) {
+		$(".column" + i).append(art_arr[i-5].large);
+		$(art_arr[i-5].large).attr('id', 'l' + i);
+	}
+		/*MAKE ART FUNCTION*/
+		function make_art (link) {
+			var canvas = new Image();
+			canvas.src = link;
+			return canvas;
+		}
+
+
+		</script>
+	</head>
+
+	<body>
+		<div class = "opener">
+			<h1>Welcome to the Comic Duo Art Gallery!</h1>
+		</div>
+		<section>
+		<div class="row"> 
+			<div class="column0" style="width:100%; text-align: center;" >
+			
+			</div>
+			<div class="column1" style="width:100%; text-align: center;">
+			</div>
+			<div class="column2" style="width:100%; text-align: center;">
+			</div>
+			<div class="column3" style="width:100%; text-align: center;">
+			</div>
+			<div class="column4" style="width:100%; text-align: center;">
+			</div>
+		</div>
+		<div class ="row">
+			<div class="column5" style="width:100%; text-align: center;" >
+						<div id = "overlay5">
+						</div>
+			</div>
+			<div class="column6" style="width:100%; text-align: center;" >
+						<div id = "overlay6">
+						</div>
+			</div>
+			<div class="column7" style="width:100%; text-align: center;" >
+						<div id = "overlay7">
+						</div>
+			</div>
+			<div class="column8" style="width:100%; text-align: center;" >
+						<div id = "overlay8">
+						</div>
+			</div>
+			<div class="column9" style="width:100%; text-align: center;" >
+						<div id = "overlay9">
+						</div>
+			</div>
+		</div>
+	</body>
+</html>
